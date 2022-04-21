@@ -21,11 +21,10 @@ def second_supply_for_fourth_of_july(holiday_hash)
   holiday_supplies[:summer][:fourth_of_july][1]      # I am using holiday_supplies instead of holiday_hash here and for the other tasks. My preference. But can use both.
 end
 
+
+
+
 #Task 2
-def add_supply_to_winter_holidays(holiday_hash, supply)
-  holiday_supplies[:winter][:christmas] << "balloons"
-  holiday_supplies[:winter][:new_years] << "balloons"
-end
 
 #Or
 def add_supply_to_winter_holidays(holiday_hash, supply)
@@ -64,6 +63,8 @@ def add_supply_to_memorial_day(holiday_hash, supply)
   holiday_supplies[:spring][:memorial_day]<< supply
 end
 
+
+
 #Task 4
 def add_new_holiday_with_supplies(holiday_hash, season, holiday_name, supply_array)
 holiday_supplies[season] = {
@@ -80,6 +81,7 @@ def add_new_holiday_with_supplies(holiday_hash, season, holiday_name, supply_arr
 end
 
 
+
 #Task 5
 def all_winter_holiday_supplies(holiday_hash)
   # return an array of all of the supplies that are used in the winter season
@@ -87,7 +89,18 @@ def all_winter_holiday_supplies(holiday_hash)
 end
 
 
+
 #Task 6
+def all_supplies_in_holidays(holiday_hash)
+  holiday_supplies.each do |season, holiday|
+    puts "#{season.capitalize}:"
+    holiday.each do |holiday, item|
+      puts "  #{holiday.to_s.split("_").collect {|i| i.capitalize}.join(" ")}: #{item.join(", ")}"
+    end
+ end 
+end
+
+#Or
 def all_supplies_in_holidays(holiday_hash)
   # iterate through holiday_hash and print items such that your readout resembles:
   # Winter:
@@ -108,15 +121,6 @@ def all_supplies_in_holidays(holiday_hash)
   end
 end
 
-#Or
-def all_supplies_in_holidays(holiday_hash)
-  holiday_supplies.each do |season, holiday|
-    puts "#{season.capitalize}:"
-    holiday.each do |holiday, item|
-      puts "  #{holiday.to_s.split("_").collect {|i| i.capitalize}.join(" ")}: #{item.join(", ")}"
-    end
- end 
-end
 
 
 #Task 7
